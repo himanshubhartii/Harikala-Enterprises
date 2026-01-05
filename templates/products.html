@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Products | Harikala Enterprises</title>
+    <title>Products</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
-<header>
-    <h1>Our Products</h1>
-</header>
+<header><h1>Products</h1></header>
 
 <nav>
     <a href="/">Home</a>
@@ -18,26 +16,21 @@
 </nav>
 
 <section class="products">
-    {% for product in products %}
-    <div class="card">
-        <h3>{{ product.name }}</h3>
-        <p>{{ product.category }}</p>
-        <div class="price">₹{{ product.price }}</div>
-
-        <a href="/product/{{ product.id }}">
-            <button>View Details</button>
-        </a>
-        <br><br>
-        <a href="/add-to-cart/{{ product.id }}">
-            <button>Add to Cart</button>
-        </a>
-    </div>
-    {% endfor %}
+{% for product in products %}
+<div class="card">
+    <h3>{{ product.name }}</h3>
+    <div class="price">₹{{ product.price }}</div>
+    <button onclick="addToCart({{ product.id }})">Add to Cart</button>
+</div>
+{% endfor %}
 </section>
 
-<footer>
-    © 2026 Harikala Enterprises
-</footer>
+<script>
+function addToCart(id) {
+    fetch(`/api/add-to-cart/${id}`, { method: "POST" })
+    .then(() => alert("Added to cart ✔"));
+}
+</script>
 
 </body>
 </html>
