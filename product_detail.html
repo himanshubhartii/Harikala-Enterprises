@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product.name }} | Harikala Enterprises</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <h1>{{ product.name }}</h1>
+    <p>Category: {{ product.category if product.category else "Cleaning Product" }}</p>
+</header>
+
+<!-- NAVBAR -->
+<nav>
+    <a href="/">Home</a>
+    <a href="/products">Products</a>
+    <a href="/cart">Cart</a>
+</nav>
+
+<!-- PRODUCT DETAIL CARD -->
+<section class="hero">
+
+    <!-- ICON -->
+    {% if product.category == "Phenyl" %}
+        <div class="product-img phenyl">🧴</div>
+    {% elif product.category == "Acid" %}
+        <div class="product-img acid">⚗️</div>
+    {% else %}
+        <div class="product-img water">💧</div>
+    {% endif %}
+
+    <!-- PRICE -->
+    <h2>₹{{ product.price }}</h2>
+
+    <!-- DESCRIPTION -->
+    {% if product.description %}
+    <p>
+        <strong>Description</strong><br>
+        {{ product.description }}
+    </p>
+    {% endif %}
+
+    <!-- USES -->
+    {% if product.uses %}
+    <p>
+        <strong>Recommended Uses</strong><br>
+        {{ product.uses }}
+    </p>
+    {% endif %}
+
+    <!-- ACTION BUTTONS -->
+    <div style="margin-top:25px;display:flex;justify-content:center;gap:15px;flex-wrap:wrap;">
+
+        <a href="/add-to-cart/{{ product.id }}">
+            <button>Add to Cart</button>
+        </a>
+
+        <a href="/cart">
+            <button class="secondary">Go to Cart</button>
+        </a>
+
+        <a href="https://wa.me/917979739916?text=I%20want%20to%20order%20{{ product.name }}"
+           target="_blank">
+            <button class="secondary">Order on WhatsApp</button>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- INFO STRIP -->
+<section class="hero" style="background:#ffffff;">
+    <h2>Bulk & Wholesale Orders</h2>
+    <p>
+        Available for offices, hospitals, hotels, factories, and distributors.
+        <br><br>
+        Contact us on WhatsApp for bulk pricing and delivery details.
+    </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 Harikala Enterprises • All Rights Reserved
+</footer>
+
+</body>
+</html>

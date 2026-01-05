@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Successful | Harikala Enterprises</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body style="text-align:center;padding:50px;">
+
+<h1>Payment Successful 🎉</h1>
+
+<p style="font-size:16px;margin-top:10px;">
+Thank you for your order with <strong>Harikala Enterprises</strong>.
+</p>
+
+<div style="margin:25px auto;max-width:420px;background:#f9fafb;padding:20px;border-radius:10px;">
+    <p><strong>Order ID:</strong> {{ order_id }}</p>
+
+    {% if amount %}
+    <p><strong>Amount Paid:</strong> ₹{{ amount }}</p>
+    {% endif %}
+
+    {% if items %}
+    <p><strong>Items Ordered:</strong></p>
+    <ul style="list-style:none;padding:0;">
+        {% for item in items %}
+        <li>• {{ item }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+
+{% if demo %}
+<p style="color:#777;margin-top:15px;">
+⚠ This was a <strong>DEMO payment (Stripe Test Mode)</strong>.  
+No real money was charged.
+</p>
+{% endif %}
+
+<div style="margin-top:30px;">
+    <a href="/products">
+        <button>Continue Shopping</button>
+    </a>
+
+    <a href="/cart" style="margin-left:10px;">
+        <button>View Cart</button>
+    </a>
+</div>
+
+<!-- OPTIONAL AUTO REDIRECT -->
+<script>
+setTimeout(function () {
+    window.location.href = "/products";
+}, 12000);
+</script>
+
+</body>
+</html>
