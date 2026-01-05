@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products | Harikala Enterprises</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Our Products</h1>
+</header>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/products">Products</a>
+    <a href="/cart">Cart</a>
+    <a href="/orders">Orders</a>
+</nav>
+
+<section class="products">
+    {% for product in products %}
+    <div class="card">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.category }}</p>
+        <div class="price">₹{{ product.price }}</div>
+
+        <a href="/product/{{ product.id }}">
+            <button>View Details</button>
+        </a>
+        <br><br>
+        <a href="/add-to-cart/{{ product.id }}">
+            <button>Add to Cart</button>
+        </a>
+    </div>
+    {% endfor %}
+</section>
+
+<footer>
+    © 2026 Harikala Enterprises
+</footer>
+
+</body>
+</html>

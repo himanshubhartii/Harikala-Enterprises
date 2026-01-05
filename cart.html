@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bag | Harikala Enterprises</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Shopping Bag</h1>
+</header>
+
+<nav>
+    <a href="/products">Products</a>
+    <a href="/cart">Cart</a>
+</nav>
+
+{% if cart_items %}
+
+<div class="myntra-cart">
+
+    <!-- LEFT: CART ITEMS -->
+    <div class="cart-left">
+        {% for item in cart_items %}
+        <div class="myntra-item">
+            <div class="item-img">
+                {% if "Phenyl" in item.name %}🧴{% elif "Acid" in item.name %}⚗️{% else %}💧{% endif %}
+            </div>
+
+            <div class="item-details">
+                <h3>{{ item.name }}</h3>
+                <p>₹{{ item.price }} × {{ item.qty }}</p>
+                <strong>Subtotal: ₹{{ item.subtotal }}</strong>
+
+                <div class="item-actions">
+                    <a href="/remove-from-cart/{{ item.id }}">Remove</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- RIGHT: PRICE DETAILS -->
+    <div class="cart-right">
+        <h3>PRICE DETAILS</h3>
+
+        <div class="price-row">
+            <span>Total Items</span>
+            <span>{{ cart_items|length }}</span>
+        </div>
+
+        <div class="price-row">
+            <span>Total Amount</span>
+            <strong>₹{{ total }}</strong>
+        </div>
+
+        <hr>
+
+        <a href="https://wa.me/917979739916?text=
+Hello%20Harikala%20Enterprises,%0A
+I%20want%20to%20place%20this%20order:%0A
+{% for item in cart_items %}
+- {{ item.name }} × {{ item.qty }} = ₹{{ item.subtotal }}%0A
+{% endfor %}
+Total: ₹{{ total }}"
+        target="_blank">
+            <button class="place-order-btn">PLACE ORDER</button>
+            <form action="/create-checkout-session" method="POST" style="margin-top:12px;">
+    <button style="
+        width:100%;
+        background:#635bff;
+        color:white;
+        font-weight:600;
+    ">
+        Pay with Card (Demo)
+    </button>
+</form>
+
+        </a>
+
+        <a href="/clear-cart">
+            <button class="clear-btn">CLEAR CART</button>
+        </a>
+    </div>
+
+</div>
+
+{% else %}
+<p style="text-align:center;padding:40px;">Your cart is empty</p>
+{% endif %}
+
+<footer>
+    © 2026 Harikala Enterprises
+</footer>
+
+</body>
+</html>
