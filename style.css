@@ -1,0 +1,260 @@
+/* =========================
+   GLOBAL RESET & BASE
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f5f7fa;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+/* =========================
+   HEADER & NAVBAR
+========================= */
+header {
+    background: linear-gradient(135deg, #0f766e, #0d9488);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 6px;
+}
+
+header p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+nav {
+    background: white;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 14px 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+nav a {
+    text-decoration: none;
+    color: #0f766e;
+    font-weight: 600;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   BUTTONS (UNIFIED)
+========================= */
+button {
+    background: #0f766e;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background: #115e59;
+}
+
+button.secondary {
+    background: #6b7280;
+}
+
+button.secondary:hover {
+    background: #4b5563;
+}
+
+/* =========================
+   HERO SECTIONS
+========================= */
+.hero {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 35px 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.hero h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    font-size: 15px;
+    color: #4b5563;
+}
+
+/* =========================
+   PRODUCT GRID
+========================= */
+.products {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.card p {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #0f766e;
+}
+
+/* =========================
+   PRODUCT ICONS
+========================= */
+.product-img {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.phenyl { color: #0f766e; }
+.acid   { color: #dc2626; }
+.water  { color: #2563eb; }
+
+/* =========================
+   MYNTRA-STYLE CART
+========================= */
+.myntra-cart {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.cart-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.myntra-item {
+    display: flex;
+    gap: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.item-img {
+    font-size: 44px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-details h3 {
+    font-size: 15px;
+}
+
+.item-details p {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.item-actions a {
+    font-size: 12px;
+    color: #dc2626;
+    text-decoration: none;
+}
+
+.cart-right {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+/* =========================
+   STRIPE / CTA BUTTONS
+========================= */
+.place-order-btn {
+    width: 100%;
+    background: #ff3f6c;
+    margin-top: 15px;
+}
+
+.place-order-btn:hover {
+    background: #e11d48;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 40px;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .myntra-cart {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}
